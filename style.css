@@ -1,50 +1,102 @@
-
-.box{
+/* General Box Styling */
+.box {
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
     justify-content: center;
-    /* background-color: black; */
-    height: 100%;
-    width: 60%;
-    justify-items: center;
-    border: 2px black solid;
-    margin: 0px 300px;
-  
+    width: 90%; /* Adjust width for smaller devices */
+    max-width: 1200px; /* Limit max width */
+    margin: 0 auto; /* Center align the box on the page */
+    border: 2px solid black;
+    gap: 20px; /* Add space between boxes */
 }
-.box-1{
-    width: 30%;
-    background-color: rgb(233, 249, 249);
-    height: 100%;
-    display: block;
-    justify-content: center;
 
+/* Box-1 and Box-2 */
+.box-1 {
+    flex: 1 1 300px; /* Allow flexibility in width */
+    background-color: rgb(233, 249, 249);
+    padding: 20px; /* Add padding for better spacing */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
-.box-2{
-    width: 70%;
+
+.box-2 {
+    flex: 2 1 300px; /* Take more space than box-1 */
     background-color: white;
-    height: 100%;
-    display: block;
-    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
-.line{
-    position: relative;
+
+/* Line Section */
+.line {
     margin-top: 150px;
     width: 100%;
-    background-color:rgb(6, 117, 154);
-    height:80px;
+    background-color: rgb(6, 117, 154);
+    height: 80px;
     display: flex;
     justify-content: center;
+    align-items: center; /* Center align text */
+    position: relative;
 }
-.img1{
-  
+
+/* Image Styling */
+.img1 {
     position: absolute;
     bottom: 30px;
     height: 180px;
     width: 180px;
-border-radius: 100%;
+    border-radius: 50%; /* Perfect circle */
 }
-li{
+
+/* Typography */
+li {
     text-transform: uppercase;
 }
-h1{
+
+h1 {
     text-transform: uppercase;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .box {
+        flex-direction: column; /* Stack boxes vertically */
+    }
+
+    .line {
+        margin-top: 100px; /* Reduce top margin */
+        height: 60px; /* Adjust height for smaller screens */
+    }
+
+    .img1 {
+        height: 140px; /* Reduce image size */
+        width: 140px;
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 100%; /* Use full width of the screen */
+    }
+
+    .box-1, .box-2 {
+        flex: 1 1 100%; /* Ensure boxes occupy full width */
+    }
+
+    .line {
+        height: 50px; /* Further reduce height */
+        margin-top: 50px; /* Reduce margin for smaller devices */
+    }
+
+    .img1 {
+        height: 120px; /* Smaller image size */
+        width: 120px;
+    }
+
+    h1 {
+        font-size: 1.2em; /* Reduce font size */
+    }
+
+    li {
+        font-size: 0.9em; /* Smaller text for list items */
+    }
 }
